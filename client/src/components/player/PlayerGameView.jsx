@@ -165,14 +165,14 @@ export default function PlayerGameView() {
       </div>
       <p className="text-white text-center font-bold text-lg px-4 pb-2 line-clamp-3">{q.text}</p>
 
-      <div className="flex-1 grid grid-cols-2 gap-2 p-2 sm:gap-3 sm:p-3">
+      <div className="grid grid-cols-2 gap-2 p-2 sm:gap-3 sm:p-3 mt-auto mb-auto max-w-xl w-full mx-auto">
         {q.answers.map((answer, i) => {
           const config = ANSWER_CONFIG[i];
           return (
             <motion.button
               key={i}
               onClick={() => handleAnswer(i)}
-              className="rounded-xl flex items-center justify-center gap-2 sm:gap-3 px-3 py-3 sm:px-4 sm:py-4 cursor-pointer active:scale-95 transition-transform"
+              className="rounded-lg flex items-center gap-2 px-2.5 py-2 sm:px-4 sm:py-3 cursor-pointer active:scale-95 transition-transform"
               style={{ backgroundColor: config.color }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
@@ -180,8 +180,8 @@ export default function PlayerGameView() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
             >
-              <span className="text-white text-2xl sm:text-3xl">{config.label}</span>
-              <span className="text-white text-sm sm:text-lg font-bold leading-tight">{answer.text}</span>
+              <span className="text-white text-lg sm:text-2xl shrink-0">{config.label}</span>
+              <span className="text-white text-xs sm:text-base font-bold leading-tight text-start">{answer.text}</span>
             </motion.button>
           );
         })}
